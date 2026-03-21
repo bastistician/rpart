@@ -69,8 +69,8 @@ rpart.control(minsplit = 20, minbucket = round(minsplit/3), cp = 0.01,
   }
   \item{maxdepth}{
     Set the maximum depth of any node of the final tree, with the root
-    node counted as depth 0.  Values greater than  30 \code{rpart} will
-    give nonsense results on 32-bit machines.
+    node counted as depth 0.  Maximum value 30 (as node numbers have to
+    be stored in 32-bit signed integer types).
   }
   \item{\dots}{
     mop up other arguments.
