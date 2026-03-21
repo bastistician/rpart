@@ -35,27 +35,28 @@ static int *ndata;              /* pointer to the data portion of nback */
 SEXP
 init_rpcallback(SEXP rhox, SEXP ny, SEXP nr, SEXP expr1x, SEXP expr2x)
 {
-    SEXP stemp;
 
+      SEXP stemp;
+      
     rho = rhox;
     ysave = asInteger(ny);
     rsave = asInteger(nr);
     expr1 = expr1x;
     expr2 = expr2x;
 
-    stemp = findVarInFrame(rho, install("yback"));
+    stemp = findVar(install("yback"), rho);
     if (!stemp)
 	error(_("'yback' not found"));
     ydata = REAL(stemp);
-    stemp = findVarInFrame(rho, install("wback"));
+    stemp = findVar(install("wback"), rho);
     if (!stemp)
 	error(_("'wback' not found"));
     wdata = REAL(stemp);
-    stemp = findVarInFrame(rho, install("xback"));
+    stemp = findVar(install("xback"), rho);
     if (!stemp)
 	error(_("'xback' not found"));
     xdata = REAL(stemp);
-    stemp = findVarInFrame(rho, install("nback"));
+    stemp = findVar(install("nback"), rho);
     if (!stemp)
 	error(_("'nback' not found"));
     ndata = INTEGER(stemp);
