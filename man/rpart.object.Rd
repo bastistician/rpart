@@ -4,15 +4,15 @@
   Recursive Partitioning and Regression Trees Object 
 }
 \description{
-  These are objects representing fitted \code{rpart} trees. 
+  These are objects representing fitted \code{\link{rpart}} trees.
 }
 \section{Structure}{
   The following components must be included in a legitimate \code{rpart}
   object.
-}
-\value{
 
-\item{frame}{
+\describe{
+
+\item{\code{frame}}{
   data frame with one row for each node in the tree.
   The \code{row.names} of \code{frame} contain the (unique) node numbers that
   follow a binary ordering indexed by node depth.
@@ -34,22 +34,22 @@
   matrix containing the fitted class, the class counts for each node,
   the class probabilities and the \sQuote{node probability} (classification trees).
 }
-\item{where}{
+\item{\code{where}}{
   an integer vector of the same length as the number of observations in the
   root node, containing the row number of \code{frame} corresponding to
   the leaf node that each observation falls into. 
 }
-\item{call}{
+\item{\code{call}}{
   an image of the call that produced the object, but with the arguments 
   all named and with the actual formula included as the formula argument. 
   To re-evaluate the call, say \code{update(tree)}.
 }
-\item{terms}{
+\item{\code{terms}}{
   an object of class \code{c("terms", "formula")} (see
   \code{\link{terms.object}}) summarizing the formula.  Used by various
   methods, but typically not of direct relevance to users.
 }
-\item{splits}{
+\item{\code{splits}}{
   a numeric matrix describing the splits: only present if there are any.
   The row label is the name of
   the split variable, and columns are \code{count}, the number of
@@ -68,7 +68,7 @@
   determines whether the subset \code{x < cutpoint} or \code{x >
   cutpoint} is sent to the left.
 }
-\item{csplit}{
+\item{\code{csplit}}{
   an integer matrix.  (Only present only if at least one of the split
   variables is a factor or ordered factor.)  There is a row for
   each such split, and the number of columns is the largest number of
@@ -78,39 +78,39 @@
   right, and \code{2} if that level is not present at this node
   of the tree (or not defined for the factor).
 }
-\item{method}{
+\item{\code{method}}{
   character string: the method used to grow the tree.   One of
   \code{"class"}, \code{"exp"}, \code{"poisson"}, \code{"anova"} or
   \code{"user"} (if splitting functions were supplied).
 }
-\item{cptable}{
+\item{\code{cptable}}{
   a matrix of information on the optimal prunings based on a
   complexity parameter.
 }
-\item{variable.importance}{
+\item{\code{variable.importance}}{
   a named numeric vector giving the importance of each variable.  (Only
   present if there are any splits.)  When printed by
   \code{\link{summary.rpart}} these are rescaled to add to 100.
 }
-\item{numresp}{
+\item{\code{numresp}}{
   integer number of responses; the number of levels for a factor response.
 }
-\item{parms, control}{
+\item{\code{parms}, \code{control}}{
   a record of the arguments supplied, which defaults filled in.
 }
-\item{functions}{
+\item{\code{functions}}{
   the \code{summary}, \code{print} and \code{text} functions for method used.
 }
-\item{ordered}{
+\item{\code{ordered}}{
   a named logical vector recording for each variable if it was an
   ordered factor.
 }
-\item{na.action}{
+\item{\code{na.action}}{
   (where relevant) information returned by \code{\link{model.frame}} on
   the special handling of \code{NA}s derived from the \code{na.action}
   argument.
 }
-
+}
 There may be \link{attributes} \code{"xlevels"} and \code{"levels"}
 recording the levels of any factor splitting variables and of a factor
 response respectively.
@@ -118,9 +118,6 @@ response respectively.
 Optional components include the model frame (\code{model}), the matrix
 of predictors (\code{x}) and the response variable (\code{y}) used to
 construct the \code{rpart} object.
-}
-\seealso{
-  \code{\link{rpart}}.
 }
 \keyword{tree}
 \keyword{methods}
