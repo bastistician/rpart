@@ -14,7 +14,7 @@ Description: Recursive partitioning for classification,
   functionality of the 1984 book by Breiman, Friedman, Olshen and Stone.
 Title: Recursive Partitioning and Regression Trees
 Depends: R (>= 2.15.0), graphics, stats, grDevices
-Suggests: survival
+Suggests: survival, tree
 License: GPL-2 | GPL-3
 LazyData: yes
 ByteCompile: yes
@@ -24,6 +24,5 @@ Author: Terry Therneau [aut],
   Brian Ripley [trl] (producer of the initial R port, maintainer
     1999-2017)
 Maintainer: Beth Atkinson <atkinson@mayo.edu>
-Repository: CRAN
 URL: https://github.com/bethatkinson/rpart, https://cran.r-project.org/package=rpart
 BugReports: https://github.com/bethatkinson/rpart/issues
